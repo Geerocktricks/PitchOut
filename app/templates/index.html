@@ -1,1 +1,43 @@
 {% extends 'base.html'%}
+
+
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+{% endblock%}
+
+{% block content %}
+    <div class="container">
+        
+    <h1>PITCHOUT IN 60 SECOND...</h1>
+        <h2 class="text-center">Categories</h2>
+        <div class="row categories">
+            <div class="category col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                <a href="">Product</a>
+            </div>
+            <div class="category col-xs-12 col-sm-12 col-md-3 col-lg-3">
+<a href="">Promotional</a>
+            </div>
+            <div class="category col-xs-12 col-sm-12 col-md-3 col-lg-3">
+<a href="">Pick Up Lines</a>
+            </div>
+            <div class="category col-xs-12 col-sm-12 col-md-3 col-lg-3">
+<a href="">Funny</a>
+            </div>
+        </div>
+        <div class="row categories">
+            <div class="category col-xs-12 col-sm-12 col-md-3 col-lg-3">
+<a href="">Cheesy</a>
+            </div>
+            <div class="category col-xs-12 col-sm-12 col-md-3 col-lg-3">
+<a href="">Boring</a>
+            </div>
+            <div class="category col-xs-12 col-sm-12 col-md-3 col-lg-3">
+<a href="">Random</a>
+            </div>
+<div class="category col-xs-12 col-sm-12 col-md-3 col-lg-3">
+    <a href="">All</a>
+</div>
+        </div>
+    </div>
+{% endblock %}

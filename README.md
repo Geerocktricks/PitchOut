@@ -66,7 +66,7 @@ There are currently no known bugs at the momennt
 * Heroku
 
 ## Incase you want to contribute
-* Git clone https://github.com/Geerocktricks/PitchItOut.git and make the changes.
+* Git clone https://github.com/Geerocktricks/PitchOut.git and make the changes.
 * Write your tests on tests/
 * If everything is OK. push your changes and make a pull request. ;)
 
