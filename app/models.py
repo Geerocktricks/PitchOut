@@ -8,7 +8,7 @@ from . import login_manager
 def load_user(user_id):
     return User.query.get(int(user_id))
     
-class User(db.Model):
+class User(UserMixin,db.Model):
     '''
     user class to help create new users
     '''
