@@ -13,13 +13,13 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{url_for('main.index')}}">Categories</a></li>
-                
-                <li><a href="">Add Pitch</a></li>
-                <li><a href=""></a></li>
-                <li><a href="">Logout</a></li> 
-                
-                <li><a href="">Login</a></li>
-                
+                {% if current_user.is_authenticated%}
+                <li><a href="{{url_for('main.add_pitch', uname = current_user.name)}}">Add Pitch</a></li>
+                <li><a href="{{url_for('main.profile', user_id = current_user.id)}}">{{current_user.name}}</a></li>
+                <li><a href="{{url_for('auth.logout')}}">Logout</a></li> 
+                {% else %}
+                <li><a href="{{url_for('auth.login')}}">Login</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
