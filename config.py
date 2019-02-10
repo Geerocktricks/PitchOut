@@ -6,7 +6,9 @@ class Config:
     """
     
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://geerocktricks:Geerock_1@localhost/PitchOut'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://geerocktricks:Geerock_1@localhost/pitchout'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
 
     @staticmethod
     def init_app(app):
