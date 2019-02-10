@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='css/comments.css')}}">
+{% endblock%}
+{% block content%}
+    <div class="container">
+    <div class="row comment-row">
+        <h3 class="comment-title">Comments for <strong>{{pitch.title | upper }}</strong> by <strong>{{pitch.user.name | upper}}</strong></h3>
+        <a class="pitch-comment" href="{{url_for('main.comment',user = current_user.id, pitch_id = pitch.id)}}"><button class="btn btn-info mr-0">Add
+                a comment</button></a>
+
+
+    </div>
+
+        {% if comments %}
+            {%for comment in comments%}
+            <div class="row">
+                <div class="col-xs-1 col-md-1 col-lg-1">
+                    <img src="{{url_for('static', filename=comment.user.profile_pic)}}" class="img-thumbnail d-inline" height="60px" width="60px">
+                </div>
+                <div class="col">
+                    <p class="d-inline"><a href="{{url_for('main.user',user_id=comment.user.id)}}"><strong>{{comment.user.name | upper}}</strong></a>: " {{comment.content}} "</p>
+                    <p>Posted on <strong>{{comment.date}}</strong> at <strong>{{comment.time}}</strong></p>
+                </div>
+            </div>
+            <hr>    
+            {% endfor %}
+        {% else %}
+        <h2>There are no comments</h2>
+        {% endif %}
+
+    </div>
+
+{% endblock %}

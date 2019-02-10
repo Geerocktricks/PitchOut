@@ -19,6 +19,8 @@ class User(UserMixin,db.Model):
     role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
+    pitches = db.relationship("Pitch", backref= "user", lazy="dynamic")
+    comments = db.relationship("Comment", backref="user", lazy="dynamic")
     pass_secure = db.Column(db.String(255))
 
     @property
@@ -64,3 +66,30 @@ class Pitch(db.Model):
     time = db.Column(db.String)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     comments = db.relationship("Comment", backref = "pitch", lazy = "dynamic")
+
+
+    def save_pitch(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def get_pitch_comments(self):
+        pitch = Pitch.query.filter_by(id = self.id).first()
+        comments = Comment.query.filter_by(pitch_id = pitch.id).order_by(Comment.time.desc())
+        return comments
+
+
+class Comment(db.Model):
+    """
+    This is the class which we will use to create the comments for the pitches
+    """
+    __tablename__ = "comments"
+    id = db.Column(db.Integer, primary_key = True)
+    content = db.Column(db.String)
+    date = db.Column(db.String)
+    time = db.Column(db.String)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    pitch_id = db.Column(db.Integer, db.ForeignKey("pitches.id"))
+
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
