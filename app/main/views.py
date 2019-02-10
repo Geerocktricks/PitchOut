@@ -4,6 +4,8 @@ from flask_login import login_required
 from ..models import User
 from .forms import UpdateProfile
 from .. import db, photos
+import datetime
+
 
 #views
 @main.route('/')
@@ -12,9 +14,10 @@ def index():
     '''
     name = "PitchOut"
     title = "PitchOut"
+   
     
 
-    return render_template('index.html' , name = name , title = title )
+    return render_template('index.html' , name = name , title = title)
 
 
 @main.route('/user/<uname>')
@@ -57,3 +60,14 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
+
+
+@main.route("/pitches/<category>")
+def categories(category):
+    pitches = None
+    if category == "all":
+        pitches = Pitch.query.order_by(Pitch.time.desc())
+    else:
+        pitches = Pitch.query.filter_by(category = category).order_by(Pitch.time.desc()).all()
+
+    return render_template("pitches.html", pitches = pitches, title = category.upper())
