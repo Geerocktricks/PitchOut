@@ -5,6 +5,8 @@ from ..models import User,Role,Pitch,Comment
 from .forms import UpdateProfile,AddPitchForm,AddComment
 from .. import db, photos
 import datetime
+import markdown2  
+
 
 
 #views
