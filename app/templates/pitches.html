@@ -12,7 +12,7 @@
                 {{ message }}
             </div>
         {% endfor %}
-    <h1 class="text-center">{{title | upper}} PITCHES</h1>
+    <h1 class="text-center" style="padding-top:60px;">{{title | upper}} PITCHES</h1>
         {% if pitches %}
             {% for row in pitches | batch(2) %}
             <div class="row pitch-row">
