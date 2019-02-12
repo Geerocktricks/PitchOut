@@ -12,7 +12,7 @@
                 {{ message }}
             </div>
         {% endfor %}
-    <h1 class="text-center" style="padding-top:60px;">{{title | upper}} PITCHES</h1>
+    
         {% if pitches %}
             {% for row in pitches | batch(2) %}
             <div class="row pitch-row">
@@ -35,9 +35,9 @@
             </div> 
             {% endfor %}
         {% else %}
-            <h2>There are no pitches in this category</h2>
+            <h2 style="margin-top:60px;" >You have no pitches in this category</h2>
             {% if current_user.is_authenticated %}
-            <a href="{{url_for('main.add_pitch',uname = current_user.name)}}"><button class="btn btn-info">Add A Pitch</button></a>
+            <a href="{{url_for('main.profile',uname=current_user.username)}}">PitchOut</a>
             {% endif %}
         {% endif %}
     </div>
