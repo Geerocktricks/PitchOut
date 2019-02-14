@@ -44,7 +44,7 @@ class UserModelTest(unittest.TestCase):
         self.new_pitch.save_pitch()
         self.assertTrue(len(Pitch.query.all()) > 0)
 
-    # def test_get_pitch_by_id(self):
-    #     self.new_pitch.save_pitch()
-    #     pitch = Pitch.get_pitch(123)
-    #     self.assertTrue(pitch is not None)
+    def test_get_pitch_by_id(self):
+        self.new_pitch.save_pitch()
+        pitch = Pitch.get_pitch(123)
+        self.assertTrue(pitch is not None)
