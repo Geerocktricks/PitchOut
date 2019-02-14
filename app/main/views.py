@@ -78,7 +78,7 @@ def categories(category):
 @login_required
 def add_pitch(uname):
     form = AddPitchForm()
-    user = User.query.filter_by(name = uname).first()
+    user = User.query.filter_by(username = uname).first()
     if user is None:
         abort(404)
     title = "Add Pitch"
@@ -94,7 +94,7 @@ def add_pitch(uname):
         new_pitch = Pitch(title = title, content = pitch, category = category,user = user, date = date,time = time)
         new_pitch.save_pitch()  
         pitches = Pitch.query.all()
-        return redirect(url_for("main.categories",category = category))
+        return redirect(url_for("main.categories" , category = category))
     return render_template("add_pitch.html",form = form, title = title)
 
 
