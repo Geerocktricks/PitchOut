@@ -16,11 +16,11 @@ class UserModelTest(unittest.TestCase):
         Pitch.query.delete()
         Comment.query.delete()
         
-    # def test_instance(self):
-    #     '''
-    #     test case to check if new instance is created
-    #     '''
-    #     self.assertTrue(isinstance(self.new_user, User))
+    def test_instance(self):
+        '''
+        test case to check if new instance is created
+        '''
+        self.assertTrue(isinstance(self.new_user, User))
 
     # def test_password_setter(self):
     #     '''
