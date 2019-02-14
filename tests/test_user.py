@@ -29,20 +29,20 @@ class UserModelTest(unittest.TestCase):
     #     self.assertTrue(self.new_user.password_hash is not None)
 
 
-    # def test_check_instance(self):
-    #     '''
-    #     test case to check if new instance is created
-    #     '''
-    #     self.assertEquals(self.new_pitch.pitch_title,'Pitch')
-    #     self.assertEquals(self.new_pitch.pitch_content,'Pitch content')
-    #     self.assertEquals(self.new_pitch.category,"pickup")
+    def test_check_instance(self):
+        '''
+        test case to check if new instance is created
+        '''
+        self.assertEquals(self.new_pitch.pitch_title,'Pitch')
+        self.assertEquals(self.new_pitch.pitch_content,'Pitch content')
+        self.assertEquals(self.new_pitch.category,"pickup")
 
-    # def test_save_pitch(self):
-    #     '''
-    #     test case to check if new instance is saved
-    #     '''
-    #     self.new_pitch.save_pitch()
-    #     self.assertTrue(len(Pitch.query.all()) > 0)
+    def test_save_pitch(self):
+        '''
+        test case to check if new instance is saved
+        '''
+        self.new_pitch.save_pitch()
+        self.assertTrue(len(Pitch.query.all()) > 0)
 
     # def test_get_pitch_by_id(self):
     #     self.new_pitch.save_pitch()
