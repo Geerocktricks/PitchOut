@@ -27,7 +27,7 @@ class Config:
 
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get("HEROKU_POSTGRESQL_BLACK_URL")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("postgresql-flexible-84270")
 
 class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://geerocktricks:Geerock_1@localhost/pitchout_test'

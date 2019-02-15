@@ -19,7 +19,7 @@
             <div class="row col-md-12">
                 {% for pitch in row %}
                 <div class="col-md-6 jumbotron bg-success " style="background-color:black;">
-                    <div class="skewedBox width:900px">
+                    <div class="skewedBox skew width:900px">
                         <div class="categories1" style="height:270px;width:900px">
                             <h3 class="source-name">{{pitch.title | upper}}</h3>
                             <p>Posted by <a href="{{url_for('main.index',user_id = pitch.user.id)}}"><strong>{{pitch.user.name}}</strong></a></p>
@@ -38,7 +38,7 @@
             </div> 
             {% endfor %}
         {% else %}
-            <h2 style="margin-top:60px;" >You have no pitches in this category</h2>
+            <h2 style="margin-top:60px; color: #ffff" >You have no pitches in this category</h2>
             {% if current_user.is_authenticated %}
             <a href="{{url_for('main.add_pitch' , uname = current_user.username)}}">PitchOut</a>
             {% endif %}

@@ -71,3 +71,6 @@ body{
     font-size: 30px;
 
 }
+.skew:hover{
+    bottom: 30px;
+}
