@@ -1,3 +1,4 @@
+
 # Pitch It Out
 ####  6-01-2019
 #### Author
@@ -10,7 +11,7 @@ Pitch It Out is a web appliction that enables one to write out short pitches on 
 * One should be able to sign in or register if he or she is a new user
 * One should see various pitch catergories and select the ones they prefer
 * One should comment on the pitches
-
+* one should be able to logout whenever they wished
 ## Features
 * See various Pitch Categories.
 *  Pitch It!
